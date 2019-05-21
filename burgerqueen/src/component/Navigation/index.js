@@ -4,17 +4,15 @@ import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => (
   <div>
-    <ul>
-      <li>
-        <Link to={ROUTES.LANDING}>Landing</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.MESERO}>Mesero</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.COCINA}>Cocina</Link>
-      </li>
-    </ul>
+      <h1>Your Restaurant Name</h1>
+        <button className="btn btn-light btn-lg btn-block col-4">
+          <Link to={ROUTES.MESERO}>Mesero</Link>
+        </button>
+        <button className="btn btn-dark btn-lg btn-block col-4">
+          <Link to={ROUTES.COCINA}>Cocina</Link>
+        </button>
+          <Link to={ROUTES.LANDING}>Volver al inicio</Link>
   </div>
 );
+
 export default Navigation 

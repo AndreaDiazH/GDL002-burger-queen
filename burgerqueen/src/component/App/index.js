@@ -5,7 +5,6 @@ import LandingPage from '../Landing';
 import Cocina from '../Cocina';
 import Mesero from '../Mesero';
 
-
 import * as ROUTES from '../../constants/routes';
 
 const App = () => (
