@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navigation from '../Navigation';
+import Navigation from '../Navigation/Navigation';
 import LandingPage from '../Landing';
 import Cocina from '../Cocina';
 import Mesero from '../Mesero';
@@ -18,3 +18,4 @@ const App = () => (
   </Router>
 );
 export default App;
+
