@@ -22,7 +22,7 @@ render () {
   return (
   <div>
       <h1>Your Restaurant Name</h1>
-      <div style={this.state.showLanding ? {}:{display:'none'}}>
+      <div className= "navbtn" style={this.state.showLanding ? {}:{display:'none'}}>
         <Link to={ROUTES.MESERO}>
           <button className="btn btn-info btn-lg btn-block col-4" onClick ={this.toggle}>Mesero</button>
         </Link>

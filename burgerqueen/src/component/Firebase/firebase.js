@@ -1,4 +1,7 @@
-import app from 'firebase/app';
+import * as firebase from 'firebase';
+import firestore from 'firebase/firestore'
+
+const settings = {timestampsInSnapshots:true};
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -7,13 +10,11 @@ const config = {
     projectId: process.env.REACT_APP_PROJECT_ID,
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-   // appId: 
+    appId: process.env.REACT_APP_ID
   };
+  
+ firebase.initializeApp(config);
 
-  class Firebase {
-      constructor() {
-          app.initializeApp(config);
-      }
-  }
+ firebase.firestore().settings(settings);
 
-  export default Firebase;
+  export default firebase;

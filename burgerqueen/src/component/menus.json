@@ -1,0 +1,207 @@
+{
+    "desayuno": [
+        {   
+            "id": "01",
+            "dish": "Hamburguesa de Res",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/cheese-burger.png"
+        },
+
+        {   
+            "id":"02",
+            "dish": "Hot-Dog",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/hot-dog.png"
+        },
+
+        {   
+            "id": "03",
+            "dish": "Hot-Cakes",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/pancakes.png"
+        },
+
+        {
+            "id":"04",
+            "dish": "Sandwich",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/sandwich.png"
+        },
+
+        {   
+            "id": "05",
+            "dish": "Sopa del día",
+            "price": "$12",
+            "value": 12,
+            "img": "../../png-icons/soup.png"
+        }
+    ],
+
+    "comida": [
+        {   
+            "id": "06",
+            "dish": "Ensalada",
+            "price": "$35",
+            "value": 35,
+            "img": "../../png-icons/salad.png"
+        },
+
+        {   
+            "id": "07",
+            "dish": "Sopa del día",
+            "price": "$12",
+            "value": 12,
+            "img": "../../png-icons/soup.png"
+        },
+        {   
+            "id": "08",
+            "dish": "Pizza",
+            "price": "$50",
+            "value": 50,
+            "img": "../../png-icons/pizza.png"
+        },
+        {   
+            "id": "09",
+            "dish": "Spaghetti",
+            "price": "$45",
+            "value": 45,
+            "img": "../../png-icons/spaghetti.png"
+        },
+        {   "id": "10",
+            "dish":"Burrito",
+            "price": "$35",
+            "value": 35,
+            "img": "../../png-icons/burrito.png"
+        }
+    ],
+    
+    "desayunoBebidas": [
+        {   
+            "id": "11",
+            "dish": "Refresco",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/soda-2.png"
+        },
+        {   
+            "id": "12",
+            "dish": "Jugo",
+            "price": "$12",
+            "value": 12,
+            "img": "../../png-icons/lemonade.png"
+        },
+        {   
+            "id": "13",
+            "dish": "Agua natural",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/water-1.png"
+        },
+        {   
+            "id": "14",
+            "dish": "Café",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/coffee-1.png"
+        }
+        
+    ],
+    "desayunoExtras": [
+        {   
+            "id": "15",
+            "dish": "Queso",
+            "price": "$10",
+            "value": 10,
+            "img": "../../png-icons/cheese.png"
+        },
+        {   
+            "id": "16",
+            "dish": "Aguacate",
+            "price": "$10",
+            "value": 10,
+            "img": "../../png-icons/avocado.png"
+        },
+        {   
+            "id": "17",
+            "dish": "Huevo",
+            "price": "$12",
+            "value": 12,
+            "img": "../../png-icons/fried-egg.png"
+        },
+        {   
+            "id": "18",
+            "dish": "Tocino",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/bacon.png"
+        }
+        
+    ],
+    "comidaBebidas":[
+        {   
+            "id": "19",
+            "dish": "Refresco",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/soda.png"
+        },
+        {   
+            "id": "20",
+            "dish": "Copa de vino",
+            "price": "$35",
+            "value": 35,
+            "img": "../../png-icons/wine-glass.png"
+        },
+        {   
+            "id": "21",
+            "dish": "Agua natural",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/water.png"
+        },
+        {   
+            "id": "22",
+            "dish": "Cerveza",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/beer-2.png"
+        }
+        
+    ],
+    "comidaExtras" : [
+        {   
+            "id": "23",
+            "dish": "Aguacate",
+            "price": "$10",
+            "value": 10,
+            "img": "../../png-icons/avocado.png"
+        },
+        {   
+            "id": "24",
+            "dish": "Camarones",
+            "price": "$25",
+            "value": 25,
+            "img": "../../png-icons/shrimp.png"
+        },
+        {   
+            "id": "25",
+            "dish": "Arroz",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/rice.png"
+        },
+        {   
+            "id": "26",
+            "dish": "Tocino",
+            "price": "$15",
+            "value": 15,
+            "img": "../../png-icons/bacon.png"
+        }
+        
+    ]    
+    
+}
