@@ -5,7 +5,6 @@ class Meals extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-        order: [],
         menu: [],
         bebida: [],
         extra: []
@@ -19,11 +18,12 @@ class Meals extends React.Component{
 bringMeals = (querySnapshot) => {
   const food = [];
   querySnapshot.forEach((doc) => {
-    const {dish,price,img} = doc.data();
+    const {dish,price,img,id} = doc.data();
     food.push({
       dish,
       price,
       img,
+      id
     });
   });
   this.setState({
@@ -35,11 +35,12 @@ bringMeals = (querySnapshot) => {
 bringDrinks = (querySnapshot) => {
   const drink = [];
   querySnapshot.forEach((doc) => {
-    const {dish,price,img} = doc.data();
+    const {dish,price,img,id} = doc.data();
     drink.push({
       dish,
       price,
       img,
+      id
     });
   });
   this.setState({
@@ -50,11 +51,12 @@ bringDrinks = (querySnapshot) => {
 bringExtrasMeal= (querySnapshot) => {
   const extras = [];
   querySnapshot.forEach((doc) => {
-    const {dish,price,img} = doc.data();
+    const {dish,price,img,id} = doc.data();
     extras.push({
       dish,
       price,
       img,
+      id
     });
   });
   this.setState({
@@ -69,13 +71,17 @@ componentDidMount() {
    
 } 
 
+selectedEx(item, event) {
+  this.props.handler(item.dish, item.price);
+}
+
 render() {
   return(
         <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <h3>Platillos</h3>
           <div className= 'row'>
           {this.state.menu.map(mnus => 
-            <div>
+            <div key= {'mnu' + mnus.id} onClick= {(e) => this.selectedEx(mnus, e)}>
               <img src= {require ('../../png-icons/'+ mnus.img)} alt='gato' className= "imgSize"></img>
               <p>{mnus.dish}</p>
               <p>${mnus.price}</p>
@@ -85,7 +91,7 @@ render() {
           <h3>Bebidas</h3>
           <div className= 'row'>
           {this.state.bebida.map(drk => 
-            <div>
+            <div key= {'drk' + drk.id} onClick= {(e) => this.selectedEx(drk, e)}>
               <img src= {require ('../../png-icons/'+ drk.img)} alt='gato' className= "imgSize"></img>
               <p>{drk.dish}</p>
               <p>${drk.price}</p>
@@ -95,7 +101,7 @@ render() {
           <h3>Extras</h3>
           <div className= 'row'>
           {this.state.extra.map(xtr => 
-              <div>
+              <div key= {'extra' + xtr.id} onClick= {(e) => this.selectedEx(xtr, e)}>
               <img src= {require ('../../png-icons/'+ xtr.img)} alt='gato' className= "imgSize"></img>
               <p>{xtr.dish}</p>
               <p>${xtr.price}</p>

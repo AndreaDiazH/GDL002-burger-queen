@@ -5,7 +5,6 @@ class Breakfast extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-          order: [],
           menus: [],
           bebidas: [],
           extras: []
@@ -19,11 +18,12 @@ class Breakfast extends React.Component {
   bringBreakfast = (querySnapshot) => {
     const foods = [];
     querySnapshot.forEach((doc) => {
-      const {dish,price,img} = doc.data();
+      const {dish,price,img,id} = doc.data();
       foods.push({
         dish,
         price,
         img,
+        id,
       });
     });
     this.setState({
@@ -32,14 +32,19 @@ class Breakfast extends React.Component {
     });
   }
   
+  selected =(id, event) => {
+
+  };
+
   bringBreakfastDrinks = (querySnapshot) => {
     const drinks = [];
     querySnapshot.forEach((doc) => {
-      const {dish,price,img} = doc.data();
+      const {dish,price,img,id} = doc.data();
       drinks.push({
         dish,
         price,
         img,
+        id
       });
     });
     this.setState({
@@ -50,11 +55,12 @@ class Breakfast extends React.Component {
   bringExtras= (querySnapshot) => {
     const extra = [];
     querySnapshot.forEach((doc) => {
-      const {dish,price,img} = doc.data();
+      const {dish,price,img,id} = doc.data();
       extra.push({
         dish,
         price,
         img,
+        id
       });
     });
     this.setState({
@@ -68,6 +74,11 @@ class Breakfast extends React.Component {
     this.ref.onSnapshot(this.bringBreakfast);
     
   } 
+
+  selectedEx(item, event) {
+    this.props.handler(item.dish, item.price);
+  }
+
   render () {
       return (
         
@@ -76,18 +87,19 @@ class Breakfast extends React.Component {
             <h3>Platillos</h3>
             <div className= 'row'>
               {this.state.menus.map(mnu => 
-              <div>
+              <div key= {'mnud' +mnu.id } onClick= {(e) => this.selectedEx(mnu, e)}>
                 <img src= {require ('../../png-icons/'+ mnu.img)} alt='gato' className= "imgSize"></img>
                 <p>{mnu.dish}</p>
                 <p>${mnu.price}</p>
-              </div>
+                </div>
+             
                 )}
               </div>
             <h3>Bebidas</h3>
             <div className= 'row'>
             {this.state.bebidas.map(drks => 
-              <div>
-                <img src= {require ('../../png-icons/'+ drks.img)} alt='gato' className= "imgSize"></img>
+              <div key={'drksd' + drks.id} onClick= {(e) => this.selectedEx(drks, e)}>
+                <img src= {require ('../../png-icons/'+ drks.img)} alt='gato' className= "imgSize" ></img>
                 <p>{drks.dish}</p>
                 <p>${drks.price}</p>
               </div>
@@ -96,7 +108,7 @@ class Breakfast extends React.Component {
             <h3>Extras</h3>
             <div className= 'row'>
             {this.state.extras.map(xtrs => 
-              <div>
+              <div key= {'extrad'+ xtrs.id} onClick= {(e) => this.selectedEx(xtrs, e)}>
                 <img src= {require ('../../png-icons/'+ xtrs.img)} alt='gato' className= "imgSize"></img>
                 <p>{xtrs.dish}</p>
                 <p>${xtrs.price}</p>
