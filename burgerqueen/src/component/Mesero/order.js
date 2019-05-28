@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from '../Firebase/firebase';
 
+
 class Order extends React.Component {
     pruebaOrden = [];
 
@@ -12,7 +13,6 @@ class Order extends React.Component {
         };
         this.clientName = React.createRef();
         this.notesChef = React.createRef();
-
     }
     agrega = (name,value) =>{
         this.pruebaOrden.push({
@@ -24,6 +24,17 @@ class Order extends React.Component {
             total: this.state.total + parseInt(value)
         });
     }
+
+   quitElement = (move) => {
+        let indexOrder = this.pruebaOrden.indexOf(move);
+        if (indexOrder !== -1) {
+          let finalValue = parseInt(move.costo); 
+          this.pruebaOrden.splice(indexOrder, 1);
+          this.setState({
+            orden: this.pruebaOrden, 
+            total: this.state.total - finalValue});
+        }
+      }
 
    createOrder = () => {
         let o = this.state.orden;
@@ -41,7 +52,9 @@ class Order extends React.Component {
         });
         this.clientName.current.value = "";
         this.notesChef.current.value = "";
+        alert('La orden a sido enviada a cocina, gracias!');
     }
+
     render() {
         return(
             <div>
@@ -49,9 +62,11 @@ class Order extends React.Component {
             <ul className="list-group list-group-flush">
                 <textarea placeholder="Nombre del cliente" id="clientName" ref = { this.clientName }></textarea>
                 {this.state.orden.map(newRow =>
-                    <li className="list-group-item">{newRow.platillo}--{newRow.costo}</li>
+                    <li className="list-group-item">{newRow.platillo}--{newRow.costo}
+                        <button className= "btn btn-danger btn-sm btn-block col-1 ml-auto" onClick={() =>{this.quitElement(newRow)}}>X</button>
+                    </li>
                 )}
-                <li className="list-group-item"><label>Total:</label>{this.state.total}</li>
+                <li className="list-group-item"><label>Total: </label>{this.state.total}</li>
                 <textarea placeholder="Notas" id= "notesForKitchen" ref = { this.notesChef }></textarea>
                 <button className="btn btn-info btn-lg btn-block col-4" onClick={this.createOrder}>Enviar a Cocina</button>
             </ul>

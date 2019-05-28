@@ -32,10 +32,6 @@ class Breakfast extends React.Component {
     });
   }
   
-  selected =(id, event) => {
-
-  };
-
   bringBreakfastDrinks = (querySnapshot) => {
     const drinks = [];
     querySnapshot.forEach((doc) => {
