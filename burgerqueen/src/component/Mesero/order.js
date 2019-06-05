@@ -44,7 +44,10 @@ class Order extends React.Component {
             name: this.clientName.current.value,
             lista: o,
             total: t,
-            notas: this.notesChef.current.value
+            notas: this.notesChef.current.value,
+            alta: firebase.firestore.FieldValue.serverTimestamp(),
+            terminada: null,
+            notifyOrder: null
         });
         this.pruebaOrden = [];
         this.setState({

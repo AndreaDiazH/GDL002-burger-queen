@@ -9,18 +9,24 @@ class Cocina extends React.Component {
     this.state = {
       orders: this.orderList
     };
-    this.ref = firebase.firestore().collection('comanda');
+    this.ref = firebase.firestore().collection('comanda').orderBy("alta");
   }
 
   orderKitchen = (querySnapshot) => {
+    this.orderList = [];
       querySnapshot.forEach(doc => {
+        if (doc.data().terminada === null){
         let newOrder = {
           list: doc.data().lista,
           customer: doc.data().name,
-          notes: doc.data().notas
+          notes: doc.data().notas,
+          id: doc.id,
+          ended: doc.data().terminada
         };
         this.orderList.push(newOrder);
+      }
       });
+      
       this.setState ({
         orders: this.orderList
       });
@@ -29,6 +35,15 @@ class Cocina extends React.Component {
 
   componentDidMount() {
     this.ref.onSnapshot(this.orderKitchen);
+  }
+
+  orderFinished = (id) => {
+    let finished = firebase.firestore().collection('comanda').doc(id)
+      return finished
+       .update({
+         terminada: firebase.firestore.FieldValue.serverTimestamp()
+       })
+
   }
 
   render() {
@@ -43,8 +58,8 @@ class Cocina extends React.Component {
         {newOrder.list.map(newDish=>
           <p className="card-text">{newDish.platillo}</p>
           )}
-          <p className="card-text">{newOrder.notes}</p>
-      <button className="btn btn-info">Terminada</button>
+          <p className="card-text">Notas: {newOrder.notes}</p>
+      <button className="btn btn-info" onClick={()=>{this.orderFinished(newOrder.id)}} >Terminada</button>
       </div>
       </div>
           )}

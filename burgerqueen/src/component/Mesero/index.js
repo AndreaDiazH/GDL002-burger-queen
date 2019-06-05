@@ -2,17 +2,44 @@ import React from 'react';
 import Meals from './meals';
 import Breakfast from './breakfast';
 import Order from './order';
+import firebase from '../Firebase/firebase';
 
 class Mesero extends React.Component{
   constructor(props){
     super(props);
     this.selectItem = this.selectItem.bind(this);
     this.refOrder = React.createRef();
+    this.ref = firebase.firestore().collection('comanda');
   }
   
   selectItem (name,value){
     this.refOrder.current.agrega(name, value);
   }
+
+
+  alertWaiter = (querySnapshot) => {
+    if(!querySnapshot.metadata.hasPendingWrites){
+      querySnapshot.forEach(doc => {
+        if (doc.data().terminada !== null && doc.data().notifyOrder === null){
+          alert('El pedido de '+ doc.data().name + ' esta listo');
+          this.orderFinished(doc.id);
+      }
+      });
+    }
+  }
+
+    componentDidMount() {
+      this.ref.onSnapshot(this.alertWaiter);
+    }
+
+    orderFinished = (id) => {
+      let finished = firebase.firestore().collection('comanda').doc(id)
+        return finished
+         .update({
+          notifyOrder: firebase.firestore.FieldValue.serverTimestamp()
+         })
+  
+    }
 
 
 render() {
