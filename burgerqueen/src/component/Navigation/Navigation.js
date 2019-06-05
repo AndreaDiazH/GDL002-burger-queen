@@ -29,7 +29,7 @@ render () {
         <Link to={ROUTES.COCINA}>
           <button className="btn btn-secondary btn-lg btn-block col-4" onClick ={this.toggle}>Cocina</button>
         </Link> 
-      </div> 
+        </div>
       <Link to={ROUTES.LANDING} onClick ={this.toggle}>Volver al inicio</Link>
   </div>
   );

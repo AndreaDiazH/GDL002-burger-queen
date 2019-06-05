@@ -26,6 +26,7 @@ class Order extends React.Component {
     }
 
    quitElement = (move) => {
+    
         let indexOrder = this.pruebaOrden.indexOf(move);
         if (indexOrder !== -1) {
           let finalValue = parseInt(move.costo); 
@@ -52,7 +53,7 @@ class Order extends React.Component {
         });
         this.clientName.current.value = "";
         this.notesChef.current.value = "";
-        alert('La orden a sido enviada a cocina, gracias!');
+        alert('La orden ha sido enviada a cocina, gracias!');
     }
 
     render() {
