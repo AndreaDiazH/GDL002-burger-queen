@@ -79,7 +79,6 @@ class Breakfast extends React.Component {
       return (
         
           <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-  
             <h3>Platillos</h3>
             <div className= 'row'>
               {this.state.menus.map(mnu => 

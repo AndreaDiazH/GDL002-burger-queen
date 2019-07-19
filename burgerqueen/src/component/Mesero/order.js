@@ -3,9 +3,9 @@ import firebase from '../Firebase/firebase';
 
 
 class Order extends React.Component {
-    pruebaOrden = [];
+   pruebaOrden = [];
 
-    constructor(props){
+   constructor(props){
         super(props);
         this.state = {
             orden: this.pruebaOrden,
@@ -14,7 +14,7 @@ class Order extends React.Component {
         this.clientName = React.createRef();
         this.notesChef = React.createRef();
     }
-    agrega = (name,value) =>{
+   agrega = (name,value) =>{
         this.pruebaOrden.push({
             platillo: name,
             costo: value
@@ -59,7 +59,7 @@ class Order extends React.Component {
         alert('La orden ha sido enviada a cocina, gracias!');
     }
 
-    render() {
+   render() {
         return(
             <div>
             <div>
@@ -72,7 +72,7 @@ class Order extends React.Component {
                 )}
                 <li className="list-group-item"><label>Total: </label>{this.state.total}</li>
                 <textarea placeholder="Notas" id= "notesForKitchen" ref = { this.notesChef }></textarea>
-                <button className="btn btn-info btn-lg btn-block col-4" onClick={this.createOrder}>Enviar a Cocina</button>
+                <button id= "btnSendOrder" className="btn btn-info btn-lg btn-block col-4" onClick={this.createOrder}>Enviar a Cocina</button>
             </ul>
             </div>
             </div>

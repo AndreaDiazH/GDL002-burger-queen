@@ -59,7 +59,7 @@ class Cocina extends React.Component {
           <p className="card-text">{newDish.platillo}</p>
           )}
           <p className="card-text">Notas: {newOrder.notes}</p>
-      <button className="btn btn-info" onClick={()=>{this.orderFinished(newOrder.id)}} >Terminada</button>
+      <button className="btn btn-danger" onClick={()=>{this.orderFinished(newOrder.id)}} >Terminada</button>
       </div>
       </div>
           )}
